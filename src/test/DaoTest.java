@@ -4,7 +4,11 @@ import dao.DaoInterface;
 import dao.Daoimp;
 import dao.Student;
 
-import java.sql.Date;
+
+
+/**
+ * @author zb
+ */
 
 public class DaoTest {
     public static void main(String[] args) {

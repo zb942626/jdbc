@@ -41,11 +41,12 @@ public class Daoimp extends DataBase implements DaoInterface{
         finally {
             close(statement,connection);
         }
-        if (j>0){
-            return true;
-        }else {
-            return false;
-        }
+       return j>0?true:false;
+//        if (j>0){
+//            return true;
+//        }else {
+//            return false;
+//        }
     }
 
     @Override
@@ -54,12 +55,13 @@ public class Daoimp extends DataBase implements DaoInterface{
         PreparedStatement statement=null;
         ResultSet resultSet=null;
         ArrayList <Student> students=new ArrayList<>();
+        Student student=null;
         try {
              connection = getConnection();
              statement = connection.prepareStatement("SELECT studentNO,loginPwd,studentName,sex,gradeId,phone,address,bornDate,email,identityCard,age FROM student");
              resultSet = statement.executeQuery();
             while (resultSet.next()){
-                Student student=new Student();
+                 student=new Student();
                 //System.out.println(resultSet.getInt("studentNO")+resultSet.getString("studentName"));
                 student.setStudentNo(resultSet.getInt("studentNO"));
                 student.setStudentName(resultSet.getString("studentName"));
